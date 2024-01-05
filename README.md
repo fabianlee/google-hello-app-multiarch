@@ -1,6 +1,6 @@
 # GoogleCloudPlatform hello-app enhanced with multi-arch ARM target for use with Apple Silicon
 
-This project is based on the code from the [GoogleCloudPlatform/kubernetes-engine-samples/quickstarts/hello-app](https://github.com/GoogleCloudPlatform/kubernetes-engine-samples/tree/main/quickstarts/hello-app)
+This project is directly based on the code from the [GoogleCloudPlatform/kubernetes-engine-samples/quickstarts/hello-app](https://github.com/GoogleCloudPlatform/kubernetes-engine-samples/tree/main/quickstarts/hello-app)
 
 The enhancement is building this GoLang app with multiple architectural targets, so that it can also run on ARM64, specifically Apple Silicon.
 
@@ -8,7 +8,7 @@ The github pipeline takes care of the multi-arch build, and publishes the image 
 
 
 ```
-docker run -ti ghcr.io/fabianlee/tiny-tools-multi-arch:2.0.3 sh
+docker pull ghcr.io/fabianlee/google-hello-app-multiarch:1.0
 ```
 
 # Creating tag that invokes Github Action
