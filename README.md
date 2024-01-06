@@ -2,7 +2,7 @@
 
 This project is directly based on the code from the [GoogleCloudPlatform/kubernetes-engine-samples/quickstarts/hello-app](https://github.com/GoogleCloudPlatform/kubernetes-engine-samples/tree/main/quickstarts/hello-app)
 
-The enhancement is building this GoLang app with multiple architectural targets, so that it can also run on ARM64, specifically Apple Silicon.
+The enhancement in this project is building this GoLang app with multiple architectural targets, so that it can also run on ARM64, specifically Apple Silicon as well as AMD64.
 
 The github pipeline takes care of the multi-arch build, and publishes the image to the Github Container Registry.
 
