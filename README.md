@@ -4,6 +4,8 @@ This project is directly based on the code from the [GoogleCloudPlatform/kuberne
 
 The enhancement in this project is building this GoLang app with multiple architectural targets, so that it can also run on ARM64, specifically Apple Silicon as well as AMD64.
 
+## Github pipeline and published image
+
 The github pipeline takes care of the multi-arch build, and publishes the image to the Github Container Registry.
 
 
@@ -11,7 +13,7 @@ The github pipeline takes care of the multi-arch build, and publishes the image 
 docker pull ghcr.io/fabianlee/google-hello-app-multiarch:1.0
 ```
 
-# Creating tag that invokes Github Action
+## Creating tag that invokes Github Action
 
 ```
 newtag=v1.0.1
@@ -19,7 +21,7 @@ git commit -a -m "changes for new tag $newtag" && git push -o ci.skip
 git tag $newtag && git push origin $newtag
 ```
 
-# Deleting tag
+## Deleting tag
 
 ```
 # delete local tag, then remote
