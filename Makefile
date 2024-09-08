@@ -114,7 +114,7 @@ docker-run-bg: docker-stop
 ## attach to console of container running in background
 # NOT POSSIBLE with distroless
 #docker-cli-bg:
-#	$(DOCKERCMD) exec -it $(PROJECT) sh
+#	$(DOCKERCMD) exec -it $(PROJECT) $(OPV)
 
 ## stops container running in background
 docker-stop:
