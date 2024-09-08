@@ -13,16 +13,17 @@
 # limitations under the License.
 
 # [START gke_quickstarts_hello_app_dockerfile]
-FROM golang:1.21.0 as builder
+FROM golang:1.21.0 AS builder
 WORKDIR /app
 RUN go mod init hello-app
 COPY *.go ./
-RUN CGO_ENABLED=0 GOOS=linux go build -o /hello-app
+ARG MY_VERSION=0.1
+RUN CGO_ENABLED=0 GOOS=linux go build -ldflags "-X main.Version=${MY_VERSION}" -o /hello-app
 
 FROM gcr.io/distroless/base-debian11
 WORKDIR /
 COPY --from=builder /hello-app /hello-app
-ENV PORT 8080
+ENV PORT=8080
 USER nonroot:nonroot
 CMD ["/hello-app"]
 # [END gke_quickstarts_hello_app_dockerfile]

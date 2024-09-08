@@ -1,3 +1,4 @@
 *.log
 # binary used for converting OCI schema to Dockerv2.2 schema for manifest index
 regctl
+dist/

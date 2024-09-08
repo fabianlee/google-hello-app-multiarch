@@ -25,6 +25,9 @@ import (
 	"os"
 )
 
+// ldflags passed via Docker build-arg
+var Version = "n/a"
+
 func main() {
 	// register hello function to handle all requests
 	mux := http.NewServeMux()
@@ -37,7 +40,7 @@ func main() {
 	}
 
 	// start the web server on port and accept requests
-	log.Printf("Server listening on port %s", port)
+	log.Printf("Server %s listening on port %s", Version, port)
 	log.Fatal(http.ListenAndServe(":"+port, mux))
 }
 
@@ -46,7 +49,7 @@ func hello(w http.ResponseWriter, r *http.Request) {
 	log.Printf("Serving request: %s", r.URL.Path)
 	host, _ := os.Hostname()
 	fmt.Fprintf(w, "Hello, world!\n")
-	fmt.Fprintf(w, "Version: 1.0.0\n")
+	fmt.Fprintf(w, "Version: %s\n",Version)
 	fmt.Fprintf(w, "Hostname: %s\n", host)
 }
 
