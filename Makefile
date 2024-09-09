@@ -52,7 +52,7 @@ docker-multi-arch-build-push:
 	# disable provenance, use OCI mediaType for manifest index (not Docker v2.2 manifest)
 	$(DOCKERCMD) buildx build --output type=registry,oci-mediatypes=true --progress plain --platform $(PLATFORMS_LIST) --build-arg "MY_VERSION=$(VERSION)" -f Dockerfile -t $(OPV) -t $(OPV_LATEST) --push $(PROVENANCE_FLAG) .
 	#
-	# creates OCI manifest index schema, mediaType: application/vnd.oci.image.index.v1+json
+	# OCI manifest index schema, mediaType: application/vnd.oci.image.index.v1+json
 	$(DOCKERCMD) manifest inspect $(OPV) | head
 
 ## converts OCI image manifest to Docker v2.2 manifest
